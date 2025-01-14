@@ -5,7 +5,7 @@ import { FaSearch } from "react-icons/fa";
 const Header = () => {
   return (
     <div>
-      <header className="fixed top-0 w-full flex items-center justify-between bg-transparent px-4 py-2 z-50">
+      <div className="fixed top-0 w-full flex items-center justify-between bg-transparent px-4 py-2 z-50">
 
         <div className="flex gap-6 mt-8 justify-center items-center w-screen mx-4">
           <input
@@ -20,7 +20,7 @@ const Header = () => {
         <FaSearch size={28} />
         </div>
         </div>
-      </header>
+      </div>
     </div>
   );
 };
