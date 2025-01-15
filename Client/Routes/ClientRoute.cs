@@ -9,7 +9,7 @@ public static class ClientRoute {
         var route = app.MapGroup("client");
 
         route.MapPost("", async (ClientRequest req, ClientContext context ) => {
-            var client = new ClientModel(req.name);
+            var client = new ClientModel(req.name, req.cpf);
             await context.AddAsync(client);
             await context.SaveChangesAsync();
         });
