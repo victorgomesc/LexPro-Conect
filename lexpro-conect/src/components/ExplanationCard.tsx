@@ -66,23 +66,22 @@ const Book: React.FC = () => {
   </div>
 </div> 
 
-<div className="flex flex-col bg-white w-3/12 h-4/6 rounded-3xl">
+<div className="flex flex-col bg-white w-3/12 h-4/6  items-center justify-center rounded-3xl">
   <div className="px-6 py-8 sm:p-10 sm:pb-6">
     <div className="grid items-center justify-center w-full grid-cols-1 text-left">
       <div>
         <h2
-          className="text-lg font-medium tracking-tighter text-gray-600 lg:text-3xl"
+          className="text-xl font-bold tracking-tighter text-gray-600 text-center lg:text-4xl"
         >
-          Starter
+          Prossionais Ativos
         </h2>
-        <p className="mt-2 text-sm text-gray-500">Suitable to grow steadily.</p>
+        <Image src="/assets/selo.avif" alt="selo" width={400} height={400} quality={100} className="" />
       </div>
       <div className="mt-6">
-        <p>
-          <span className="text-9xl font-bold tracking-tight text-black">
-            $25
+        <p className="text-center">
+          <span className="text-9xl text-center font-bold tracking-tight text-black">
+            2340
           </span>
-          <span className="text-base font-medium text-gray-500"> /mo </span>
         </p>
       </div>
     </div>

@@ -1,5 +1,6 @@
 import Book from "@/components/ExplanationCard";
 import Footer from "@/components/Footer";
+import GridNews from "@/components/GridNews";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import IntrductionCard from "@/components/IntrductionCard";
@@ -13,6 +14,7 @@ export default function Home() {
     <Hero />
     <IntrductionCard />
     <Book />
+    <GridNews />
     <Footer />
    </div>
   );
