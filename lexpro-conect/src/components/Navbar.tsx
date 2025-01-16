@@ -3,21 +3,21 @@ import React from 'react'
 
 const Navbar = () => {
   return (
-    <div className="fixed text-white mt-32 gap-16 font-bold text-2xl top-0 w-full flex items-center bg-transparent justify-center px-4 py-2 z-50">
+    <div className="nav-link-contain">
       <Link href="/pages/profeshional">
-        <p className="hover:text-blue-300">Profissionais</p>
+        <p className="nav-link">Profissionais</p>
       </Link>
 
       <Link href="/pages/signup">
-        <p className="hover:text-blue-300">Assine já</p>
+        <p className="nav-link">Assine já</p>
       </Link>
 
       <Link href="#">
-        <p className="hover:text-blue-300">Contato</p>
+        <p className="nav-link">Contato</p>
       </Link>
 
       <Link href="#">
-        <p className="hover:text-blue-300">Duvidas</p>
+        <p className="nav-link">Duvidas</p>
       </Link>
 
     </div>
