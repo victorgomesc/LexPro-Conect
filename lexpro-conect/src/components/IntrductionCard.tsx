@@ -3,7 +3,7 @@ import React from 'react'
 
 const IntrductionCard = () => {
   return (
-    <div className="w-screen h-full mt-32 items-center flex justify-center text-black">
+    <div className="w-screen h-full mt-64 items-center flex justify-center text-black">
       <div className="w-4/5 flex gap-24">
       <Image src="/assets/advogado2.jpg" alt='advogado' width={650} height={650} quality={100} className='' />
       <div>

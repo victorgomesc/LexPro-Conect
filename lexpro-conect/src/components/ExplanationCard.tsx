@@ -3,6 +3,7 @@ import React from "react";
 
 const Book: React.FC = () => {
   return (
+<>
 <div className="w-screen h-screen flex items-center gap-14 justify-center">
 <div className="flex flex-col items-center justify-center bg-white w-3/12 h-4/6 rounded-3xl">
   <div className="px-6 py-8 sm:p-10 sm:pb-6">
@@ -97,6 +98,7 @@ const Book: React.FC = () => {
   </div>
 </div> 
 </div>
+</>
   );
 };
 
