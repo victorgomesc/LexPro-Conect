@@ -9,7 +9,7 @@ public static class ClientRoute {
         var route = app.MapGroup("client");
 
         route.MapPost("", async (ClientRequest req, ClientContext context ) => {
-            var client = new ClientModel(req.name, req.cpf, req.email);
+            var client = new ClientModel(req.name, req.cpf, req.email, req.dateOfBirth, req.phone, req.address);
             await context.AddAsync(client);
             await context.SaveChangesAsync();
         });
@@ -27,6 +27,21 @@ public static class ClientRoute {
             }
 
             client.ChangeName(req.name);
+            await context.SaveChangesAsync();
+
+            client.ChangeCpf(req.cpf);
+            await context.SaveChangesAsync();
+
+            client.ChangeEmail(req.email);
+            await context.SaveChangesAsync();
+
+            client.ChangeDateOfBirth(req.dateOfBirth);
+            await context.SaveChangesAsync();
+
+            client.ChangePhone(req.phone);
+            await context.SaveChangesAsync();
+
+            client.ChangeAddress(req.address);
             await context.SaveChangesAsync();
 
             return Results.Ok(client);
