@@ -1,15 +1,18 @@
 namespace Client.Models;
 
 public class ClientModel {
-    public ClientModel(string name, string cpf){
+    public ClientModel(string name, string cpf, string email){
         Name = name;
         Cpf = cpf;
+        Email = email;
         Id = Guid.NewGuid();
     }
     public Guid Id { get; init; }
     public string Name { get; private set; }
 
     public string Cpf { get; set; }
+
+    public string Email { get; set; }
 
     public void ChangeName(string name){
         Name = name;
