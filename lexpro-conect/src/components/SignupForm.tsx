@@ -1,67 +1,53 @@
 "use client"
 
 import React, { useState } from 'react'
+import axios from "axios";
 
-const SignupForm = () => {
+interface ClientProps {
+  name: string;
+  cpf: string;
+  email: string;
+  dateOfBirth: string;
+  phone: string;
+  address: string;
+
+}
+
+const SignupForm: React.FC<ClientProps> = () => {
 
 
-    const [formData, setFormData] = useState({
-        name: '',
-        cpf: '',
-        dateOfBirth: '',
-        email: '',
-        phone: '',
-        address: '',
-      });
+    const [name, setName] = useState<string>('');
+    const [cpf, setCpf] = useState<string>('');
+    const [email, setEmail] = useState<string>('');
+    const [dateOfBirth, setDateOfBirth] = useState<string>('');
+    const [phone, setPhone] = useState<string>('');
+    const [address, setAddress] = useState<string>('');
 
-      const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target;
-        setFormData((prevData) => ({
-          ...prevData,
-          [name]: value,
-        }));
-      };
 
-    const handleSubmit = async (e: React.ChangeEvent<HTMLInputElement>) => {
+
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
-      try {
-        const response = await fetch('https://localhost:5001/client', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            name: formData.name,
-            cpf: formData.cpf,
-            email: formData.email,
-            dateOfBirth: formData.dateOfBirth,
-            phone: formData.phone,
-            address: formData.address,
-          }),
-        });
-  
-        if (response.ok) {
-          alert('Cliente cadastrado com sucesso!');
-          setFormData({
-            name: '',
-            cpf: '',
-            dateOfBirth: '',
-            email: '',
-            phone: '',
-            address: '',
-          });
-        } else {
-          const errorData = await response.json();
-          alert(`Erro ao cadastrar cliente: ${errorData.message}`);
+        const newClient = {
+          name,
+          cpf,  
+          email,
+          dateOfBirth,
+          phone,
+          address,
         }
+
+      try {
+        await axios.post("https://localhost:5074/api/v1/client", newClient);
+        
+        alert('Tarefa cadastrada com sucesso!');
       } catch (error) {
         console.error('Erro ao conectar com o servidor:', error);
         alert('Erro ao cadastrar cliente. Tente novamente mais tarde.');
       }
     };
 
-
+  
   return (
     <div className="bg-slate-100 w-screen h-screen flex items-center justify-center">
         <div className='w-7/12'>
@@ -73,8 +59,8 @@ const SignupForm = () => {
                     name='name' 
                     placeholder='Digite seu nome...' 
                     className='input-form' 
-                    value={formData.name}
-                    onChange={handleChange}
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
                     required
                 />
 
@@ -84,8 +70,8 @@ const SignupForm = () => {
                     name='cpf' 
                     placeholder='Digite seu nome...' 
                     className='input-form' 
-                    value={formData.cpf}
-                    onChange={handleChange}
+                    value={cpf}
+                    onChange={(e) => setCpf(e.target.value)}
                     required
                 />
                 <label>Digite seu melhor email:</label>
@@ -94,8 +80,8 @@ const SignupForm = () => {
                     name='email' 
                     placeholder='Digite seu melhor email' 
                     className='input-form' 
-                    value={formData.email}
-                    onChange={handleChange}
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     required
                 />
 
@@ -105,8 +91,8 @@ const SignupForm = () => {
                     name='dateOfBirth' 
                     placeholder='Digite seu nome...' 
                     className='input-form' 
-                    value={formData.dateOfBirth}
-                    onChange={handleChange}
+                    value={dateOfBirth}
+                    onChange={(e) => setDateOfBirth(e.target.value)}
                     required
                 />
 
@@ -116,8 +102,8 @@ const SignupForm = () => {
                     name='phone' 
                     placeholder='Digite seu melhor email' 
                     className='input-form' 
-                    value={formData.phone}
-                    onChange={handleChange}
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
                     required
                 />
 
@@ -127,8 +113,8 @@ const SignupForm = () => {
                     name="address"
                     placeholder="Digite seu endereço"
                     className="input-form"
-                    value={formData.address}
-                    onChange={handleChange}
+                    value={address}
+                    onChange={(e) => setAddress(e.target.value)}
                     required
                 />
 
