@@ -1,3 +1,5 @@
+"use client"
+
 import Book from "@/components/ExplanationCard";
 import Footer from "@/components/Footer";
 import GridNews from "@/components/GridNews";

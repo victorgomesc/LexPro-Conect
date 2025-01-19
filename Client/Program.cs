@@ -12,9 +12,9 @@ builder.Services.AddScoped<ClientContext>();
 // Configurar CORS
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAll", policy =>
+    options.AddPolicy("AllowSpecificOrigins", policy =>
     {
-        policy.AllowAnyOrigin()
+        policy.WithOrigins("https://localhost:5074/client", "https://localhost:3000/pages/signup")
               .AllowAnyMethod()
               .AllowAnyHeader();
     });
@@ -29,6 +29,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors("AllowSpecificOrigins");
 
 app.ClientRoutes();
 
