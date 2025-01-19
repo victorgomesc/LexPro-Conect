@@ -1,6 +1,7 @@
 "use client"
 
 import axios from 'axios';
+import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
 
 interface Client {
@@ -17,6 +18,8 @@ const ProfessionalPage: React.FC = () => {
     const [clients, setClients] = useState<Client[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
+
+
 
     const fetchClients = async () => {
         try {
@@ -41,39 +44,40 @@ const ProfessionalPage: React.FC = () => {
       if (error) {
         return <div className="text-center text-red-500">{error}</div>;
       }
+
   return (
     <div className="bg-gray-100 min-h-screen p-8 text-black">
-      <h1 className="text-2xl font-bold mb-4">Lista de Clientes</h1>
+      <h1 className="text-5xl font-bold mb-4 text-center">Lista de Clientes</h1>
       {clients.length === 0 ? (
         <p className="text-gray-500">Nenhum cliente encontrado.</p>
       ) : (
-        <ul className="space-y-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 w-full gap-12 p-10">
           {clients.map((client) => (
-            <li
-              key={client.id}
-              className="p-4 bg-white rounded-lg shadow-md flex flex-col space-y-2"
-            >
-              <p>
-                <strong>Nome:</strong> {client.name}
-              </p>
-              <p>
-                <strong>CPF:</strong> {client.cpf}
-              </p>
-              <p>
-                <strong>Email:</strong> {client.email}
-              </p>
-              <p>
-                <strong>Data de Nascimento:</strong> {client.dateOfBirth}
-              </p>
-              <p>
-                <strong>Telefone:</strong> {client.phone}
-              </p>
-              <p>
-                <strong>Endereço:</strong> {client.address}
-              </p>
-            </li>
+            <Link key={client.id} href={`/user-page?id=${client.id}`}>
+            <div
+            key={client.id}
+            className="bg-white p-6 rounded-lg shadow-lg border border-gray-200"
+          >
+            <h2 className="text-xl font-semibold mb-2">{client.name}</h2>
+            <p className="text-gray-600 mb-2">
+              <strong>CPF:</strong> {client.cpf}
+            </p>
+            <p className="text-gray-600 mb-2">
+              <strong>Email:</strong> {client.email}
+            </p>
+            <p className="text-gray-600 mb-2">
+              <strong>Data de Nascimento:</strong> {client.dateOfBirth}
+            </p>
+            <p className="text-gray-600 mb-2">
+              <strong>Telefone:</strong> {client.phone}
+            </p>
+            <p className="text-gray-600">
+              <strong>Endereço:</strong> {client.address}
+            </p>
+          </div>
+          </Link>
           ))}
-        </ul>
+        </div>
       )}
     </div>
   )
