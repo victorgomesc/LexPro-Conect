@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useState } from 'react'
+import { useRouter } from "next/navigation";
 import axios from "axios";
 
 interface ClientProps {
@@ -23,7 +24,7 @@ const SignupForm: React.FC<ClientProps> = () => {
     const [phone, setPhone] = useState<string>('');
     const [address, setAddress] = useState<string>('');
 
-
+    const router = useRouter();
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -38,9 +39,17 @@ const SignupForm: React.FC<ClientProps> = () => {
         }
 
       try {
-        await axios.post("https://localhost:5074/api/v1/client", newClient);
+        await axios.post("https://localhost:5074/client", newClient)
+        .then(response => console.log(response.data))
+        .catch(error => console.error(error));
         
         alert('Tarefa cadastrada com sucesso!');
+          
+          // Redirecionar para a página inicial após 2 segundos
+          setTimeout(() => {
+            router.push("/");
+          }, 2000);
+
       } catch (error) {
         console.error('Erro ao conectar com o servidor:', error);
         alert('Erro ao cadastrar cliente. Tente novamente mais tarde.');
