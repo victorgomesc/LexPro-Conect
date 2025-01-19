@@ -1,6 +1,10 @@
 
+import ProfessionalPage from "@/components/ProfessionalPage";
+
 export default function Profeshional() {
     return(
-        <h1 className="text-black">Profissionais</h1>
+        <div>
+            <ProfessionalPage />
+        </div>
     )
 }

@@ -12,7 +12,7 @@ type Card = {
 
 const GridNews: React.FC = () => {
   const [cards, setCards] = useState<Card[]>([
-    { id: 1, title: "Ultima noticia", imgUrl: "/assets/capa3.webp" },
+    { id: 1, title: "Ultima noticia", imgUrl: "/assets/imagebg.avif" },
     { id: 2, title: "A LexPro Conect lidera o merdado de software para judicial", imgUrl: "/assets/capa3.webp" },
     { id: 3, title: "Card 3", imgUrl: "/assets/capa3.webp" },
     { id: 4, title: "Card 4", imgUrl: "/assets/capa3.webp" },
@@ -38,7 +38,7 @@ const GridNews: React.FC = () => {
         {cards.map((card) => (
           <motion.div
             key={card.id}
-            className="h-[60vh] w-full rounded-xl shadow-lg text-white font-bold flex flex-col items-center justify-start"
+            className="h-[60vh] w-full bg-black rounded-xl shadow-lg text-white font-bold flex flex-col items-center justify-start"
             layout
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -48,7 +48,7 @@ const GridNews: React.FC = () => {
             <div className="h-[40vh] w-full">
                 <Image src={card.imgUrl} alt="" width={300} height={200} quality={100} className="object-contain w-full" />
             </div>
-            <h1 className="text-5xl font-bold text-black">{card.title}</h1>
+            <h1 className="text-5xl font-bold text-white">{card.title}</h1>
           </motion.div>
         ))}
       </div>

@@ -53,15 +53,3 @@ public class ClientModel {
     }
 }
 
-/*
-Implementar as sseguintes informações
-    Nome Completo
-    CPF
-    Data de nascimento
-    Número de registro na OAB 
-    Especialidade(s)
-    Email
-    Telefone
-    Endereço
-    Graduação
-*/

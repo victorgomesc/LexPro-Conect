@@ -4,17 +4,8 @@ import React, { useState } from 'react'
 import { useRouter } from "next/navigation";
 import axios from "axios";
 
-interface ClientProps {
-  name: string;
-  cpf: string;
-  email: string;
-  dateOfBirth: string;
-  phone: string;
-  address: string;
 
-}
-
-const SignupForm: React.FC<ClientProps> = () => {
+const SignupForm: React.FC = () => {
 
 
     const [name, setName] = useState<string>('');
@@ -45,7 +36,6 @@ const SignupForm: React.FC<ClientProps> = () => {
         
         alert('Tarefa cadastrada com sucesso!');
           
-          // Redirecionar para a página inicial após 2 segundos
           setTimeout(() => {
             router.push("/");
           }, 2000);
@@ -58,9 +48,10 @@ const SignupForm: React.FC<ClientProps> = () => {
 
   
   return (
-    <div className="bg-slate-100 w-screen h-screen flex items-center justify-center">
+    <div className="bg-slate-100 w-screen h-screen flex flex-col items-center justify-center">
         <div className='w-7/12'>
-            <form name='Cadastro' className='text-black text-2xl' onSubmit={handleSubmit}>
+            <form name='Cadastro' className='text-black text-2xl bg-white p-10 rounded-lg' onSubmit={handleSubmit}>
+            <h1 className='text-black text-5xl'>Cadastre-se</h1>
                 <div className='flex flex-col w-1/2'>
                 <label className='text-black text-2xl p-4'>Digite seu nome completo:</label>
                 <input 
