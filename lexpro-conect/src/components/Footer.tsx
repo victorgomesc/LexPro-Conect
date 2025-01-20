@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
 
 const Footer: React.FC = () => {
   return (
     <footer className="bg-blue-900 text-white py-8">
-      <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-5 gap-8">
+      <div className="container mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
         <div>
           <h2 className="font-bold">São Paulo</h2>
           <p>Rua Hungria, 1100</p>
@@ -40,11 +40,11 @@ const Footer: React.FC = () => {
           <p>+81 (3) 3216.7191</p>
         </div>
       </div>
-      <div className="container mx-auto px-4 mt-8 text-sm flex justify-between">
-        <p>Pinheiro Neto Advogados. Todos os direitos reservados.</p>
-        <div className="flex gap-4">
-          <a href="#" className="underline">Política de Privacidade e LGPD</a>
-          <a href="#" className="underline">Termos de uso</a>
+      <div className="container mx-auto px-4 mt-8 text-sm flex flex-col md:flex-row justify-between items-center gap-4">
+        <p className="text-center md:text-left">Pinheiro Neto Advogados. Todos os direitos reservados.</p>
+        <div className="flex flex-wrap justify-center gap-4">
+          <a href="#" className="underline hover:text-gray-300">Política de Privacidade e LGPD</a>
+          <a href="#" className="underline hover:text-gray-300">Termos de uso</a>
         </div>
       </div>
     </footer>
