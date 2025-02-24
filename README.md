@@ -53,5 +53,5 @@ O EncontraAdvogados tem como propósito facilitar o acesso à assistência jurí
 - **Banco de Dados:** A definir
 - **Hospedagem:** A definir
 
-### 🚧 Status do Projeto
+## 🚧 Status do Projeto
 Em desenvolvimento 🚀
